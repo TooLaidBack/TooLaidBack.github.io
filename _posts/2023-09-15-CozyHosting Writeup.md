@@ -41,5 +41,14 @@ After no credential was successful, I continued to dig around to see what I can 
 
 No luck on either or, pitty. Time to run a directory scan
 
-![nmap](/img/cozyhosting/hosts.png)
+```bash
+wfuzz -c -f,/home/kali/SecLists/Discovery/Web-Content/raft-large-directories.txt --hc 404 -u "http://cozyhosting.htb"
+```
 
+![nmap](/img/cozyhosting/wfuzz.png)
+
+After finishing my directory scans I became a little stumped, I wasn't able to find any interesting files or directories. I decided to view the /error directory just to see if it would give me any extra information that would help me.
+
+![nmap](/img/cozyhosting/whitelabel.png)
+
+Ahah, I've never seen this kind of error page before, its usually a "403 forbidden", "Page doesn't exist" or things relative to that, So after looking up what exactly is "White Label" and where does it come from I was able to find out that it is part of the "Spring Boot" Framework
