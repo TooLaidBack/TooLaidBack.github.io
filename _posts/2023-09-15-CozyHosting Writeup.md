@@ -12,7 +12,7 @@ tags: [htb,pentesting]     # TAG names should always be lowercase
 ## Network Scanning
 
 ### Nmap
-After we got the IP address of the target machine, we run nmap to scan all ports and enable OS detection, version detection, script scanning, and traceroute to discover the open ports and services that are running on the target.
+After we got the IP address of the target machine, we run nmap to scan all ports with version detection and script scanning. I used -T 4 here to scan the ports faster but in a real world environment I wouldn't recommend scanning this fast as nmap might miss a port that was open.
 
 ```bash
 sudo nmap 10.10.11.230 -sC -sV -T 4 -p-
@@ -53,7 +53,7 @@ After finishing my directory scans I became a little stumped, I wasn't able to f
 ### Spring Boot
 ![nmap](/img/cozyhosting/whitelabel.png)
 
-Ahah, I've never seen this kind of error page before, its usually a "403 forbidden", "Page doesn't exist" or something relative to that, So after looking up "White Label error"" we were able to get a name for a possible framework running on the website "Spring Boot"
+Ah ha, I've never seen this kind of error page before, maybe we should look into it. After googling "White Label error"" we were able to get a name for a possible framework running on the website that uses this type of error, the framework is called "Spring Boot"
 
 ![nmap](/img/cozyhosting/moreinfo.png)
 
@@ -112,7 +112,7 @@ Now that our shell is fully stabilized here are some of the very first things I 
 find / -type f -perm -04000 -ls 2>/dev/null
 ```
 
-No luck. But if you recall from when we initially got our reverse shell I remember seeing a file labeld "cloudhosting-0.0.1.jar" lets go back to the /app directory and setup a python server so that we can download it on our main machine.
+No luck. But if you recall from when we initially got our reverse shell I remember seeing a file labeled "cloudhosting-0.0.1.jar" lets go back to the /app directory and setup a python server so that we can download it on our main machine.
 
 ```bash
 python3 -m http.server 9999
