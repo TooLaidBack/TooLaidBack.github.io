@@ -4,8 +4,8 @@ icon: fas fa-info-circle
 order: 6
 ---
 
-Hey, I'm Isiah and have a passion for pentesting and studying cyber security. I also like to code personal projects for my self to use as well as projects that I feel can be useful to the public
-which I will continue to be uploading to my github.
+Hey, my name is Isiah but I go by TooLaidBack online. I have a passion for pentesting and studying cyber security. I also like to code personal projects not only for myself to use but also projects that I feel can be useful to the public
+which I will continue to upload on my github.
 
 
 ## Certifications 
